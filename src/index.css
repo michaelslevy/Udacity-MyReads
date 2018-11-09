@@ -1,14 +1,114 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway|Spicy+Rice");
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-size:1em;
+  font-family:Raleway, sans-serif;
+  color:#112F41;
+  background: #F2ECE1;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+h1, .logo {
+  font-family: 'Spicy Rice', cursive;
+  font-size:3em;
+  font-weight:normal;
+  text-align: center;
+  color:#ED553B;
+}
+
+#loginBox {
+  text-align: center;
+  margin-top:100px;
+}
+
+li {
+  text-align: left;
+  list-style: none;
+}
+
+#selectBox {
+  background: #068587;
+  padding:20px;
+  border-radius: 5px;
+  border-top-left-radius: 0;
+  position: relative;
+  margin-top:100px;
+}
+
+#loginBox {
+  max-width:600px;
+  margin:0 auto;
+}
+
+#loginBox .input {
+  width:calc(100% - 40px);
+  font-size:1.5em;
+  font-family: Raleway, sans-serif;
+  padding:10px 20px;
+  border-radius: 1px;
+  border:0;
+  height:30px;
+  line-height:30px;
+  background:white;
+  text-align: left;
+}
+
+.tabs {
+  position:absolute;
+  top:0;
+  left:0;
+  top:-40px;
+}
+
+.tabs a {
+  text-decoration: none;
+  padding:0 10px;
+  background:rgba(6,133,135,.7);
+  color:white;
+  display: inline-block;
+  line-height:40px;
+  height:40px;
+}
+
+.tabs a.active {
+  background:rgba(6,133,135,1);
+}
+
+#loginBox ul {
+  position:absolute;
+  width:calc(100% - 1px);
+  left:0;
+  top:32px;
+  padding:0;
+  border:solid 1px #999;
+  border-bottom:0;
+  display: none;
+  overflow: hidden;
+}
+
+#userSelector:hover ul {
+  display: block;
+}
+
+#loginBox ul li {
+  line-height: 30px;
+  display: block;
+  background:white;
+  width:calc(100% - 20px);
+  padding:10px;
+  border-bottom:solid 1px #999;
+}
+
+#loginBox ul li:hover {
+  background:#eee;
+}
+
+#loginBox ul li img {
+  vertical-align: center;
+  height:30px;
+  margin-right:10px;
+  border-radius: 5px;
+}
+
+#userSelector {
+    position: relative;
 }
