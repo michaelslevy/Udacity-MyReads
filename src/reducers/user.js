@@ -37,6 +37,11 @@ const users = (state = initialState, action) => {
         ...state,
         loggedInAs:action.user
       }
+      case "user/LOGOUT":
+        return {
+          ...state,
+          loggedInAs:false
+        }
 
     default:
       return state

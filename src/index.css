@@ -52,12 +52,21 @@ h1, .logo {
   text-align: right;
 }
 
-#main header nav a{
+#main header nav a,
+#main header nav button {
   color: #666;
   text-decoration: none;
   font-size: 1.25em;
   padding:10px 20px;
   display: inline-block;
+  background: none;
+  border:none;
+  font-family: Raleway, sans-serif;
+}
+
+#main header nav a:hover,
+#main header nav button:hover {
+  color:black;
 }
 
 #main header nav a.active {

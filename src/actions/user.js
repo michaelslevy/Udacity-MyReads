@@ -19,6 +19,10 @@ export const login = user => ({
   user
 });
 
+export const logout = user => ({
+  type: 'user/LOGOUT'
+});
+
 //uses middleware to perform api call
 //because action itself must be a pure function
 //after getting the data, it dispatches the action to update the store
