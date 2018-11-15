@@ -19,12 +19,12 @@ const mapDispatchToProps = (dispatch) => {
 
 
 
-class Home extends Component {
+class NewQuestion extends Component {
 
    render() {
      return (
        <div id='main'>
-          <h1 >Welcome {this.props.loggedInUser.name}</h1>
+          <h1 >New Question</h1>
 
        </div>
      );
@@ -32,4 +32,4 @@ class Home extends Component {
 }
 
 //connects Login component to store
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(NewQuestion);

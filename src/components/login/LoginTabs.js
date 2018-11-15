@@ -5,7 +5,7 @@ function LoginTabs(props) {
     return (
         <nav className='tabs'>
           <Link
-            to='/'
+            to='/login'
             className={props.login}
           >Login</Link>
           <Link

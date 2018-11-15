@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { Link, Router } from 'react-router-dom';
 import LoginTabs from './LoginTabs'
-import * as userActionCreators  from '../actions/user' //combine user actions into a single object
+import * as userActionCreators  from '../../actions/user' //combine user actions into a single object
 
 //function passed to Reduxes Connect to populate store
 const mapStateToProps = (store) => {

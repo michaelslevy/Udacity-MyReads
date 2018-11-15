@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/App';
+import Authenticate from './routes/Authenticate';
 import { BrowserRouter } from 'react-router-dom'
 
 import { Provider } from 'react-redux'
@@ -25,7 +25,7 @@ const store = createStore(
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
-      <App />
+      <Authenticate />
     </Provider>
   </BrowserRouter>,
   document.getElementById('root')

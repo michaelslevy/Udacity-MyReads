@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom';
 import LoginTabs from './LoginTabs'
-import * as userActionCreators  from '../actions/user' //combine user actions into a single object
+import * as userActionCreators  from '../../actions/user' //combine user actions into a single object
+import { Redirect } from 'react-router-dom'
 
 //function passed to Reduxes Connect to populate store
 const mapStateToProps = (store) => {
@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => {
     //getPeople is a function that returns users
     //getUser is a user action that that connects to Thunk middleware
       getPeople: () => dispatch(userActionCreators.getUsers()),
-      loginUser: () => dispatch(userActionCreators.login())
+      loginUser: (user) => dispatch(userActionCreators.login(user))
   }
 }
 
@@ -29,6 +29,8 @@ class Login extends Component {
 
   loginUser = (user) => {
     this.props.loginUser(user);
+    this.props.history.push("/");
+
   }
 
    render() {

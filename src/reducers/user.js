@@ -19,7 +19,8 @@ const users = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        users: state.users.concat(...action.users),
+        //users: state.users.concat(...action.users),
+        users: action.users,
         error:false
       }
 
@@ -34,7 +35,7 @@ const users = (state = initialState, action) => {
     case "user/LOGIN":
       return {
         ...state,
-        loggedInAs:action.loggedInAs
+        loggedInAs:action.user
       }
 
     default:
