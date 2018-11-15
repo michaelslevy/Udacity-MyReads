@@ -1,9 +1,15 @@
 import React from 'react';
-import { Navigation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+
 
 function Navigation(props) {
     return (
-        <nav className='tabs'>
+      <header className='layout'>
+        <div className='container'>
+        <span className='logo'>
+          Would You Rather?
+        </span>
+        <nav className='primaryMenu'>
           <Link
             to='/'
             className={props.home}
@@ -18,6 +24,8 @@ function Navigation(props) {
           >New Question</Link>
           <a href=''>Logout</a>
         </nav>
+          </div>
+        </header>
     );
 }
 

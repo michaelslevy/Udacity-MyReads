@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
+import Navigation from './Navigation'
 
 //function passed to Reduxes Connect to populate store
 const mapStateToProps = (store) => {
@@ -21,10 +22,17 @@ const mapDispatchToProps = (dispatch) => {
 
 class Home extends Component {
 
+  componentDidMount() {
+    document.body.classList.remove('login');
+  }
+
    render() {
      return (
        <div id='main'>
-          <h1 >Welcome {this.props.loggedInUser.name}</h1>
+          <Navigation home='active' leaderboard='' newquestion='' />
+          <div className='container'>
+            <h1 >Welcome {this.props.loggedInUser.name}</h1>
+          </div>
 
        </div>
      );

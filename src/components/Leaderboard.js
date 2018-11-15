@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
+import Navigation from './Navigation'
 
 //function passed to Reduxes Connect to populate store
 const mapStateToProps = (store) => {
@@ -22,8 +23,10 @@ class Leaderboard extends Component {
    render() {
      return (
        <div id='main'>
-          <h1 >Leaderboard</h1>
-
+          <Navigation home='' leaderboard='active' newquestion='' />
+          <div className='container'>
+            <h1 >Leaderboard</h1>
+          </div>
        </div>
      );
   }

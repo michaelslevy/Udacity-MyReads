@@ -4,6 +4,12 @@ body {
   font-size:1em;
   font-family:Raleway, sans-serif;
   color:#112F41;
+  margin:0;
+  padding:0;
+}
+
+body.login,
+body.register {
   background: #F2ECE1;
 }
 
@@ -14,6 +20,55 @@ h1, .logo {
   text-align: center;
   color:#ED553B;
 }
+
+.container {
+  max-width:900px;
+  margin:0 auto;
+}
+
+#main h1 {
+  text-align:left;
+  font-family:Raleway, sans-serif;
+  font-size:2em;
+  color:#068587;
+}
+
+/* Header */
+
+#main header {
+  margin-bottom:50px;
+  background: #F2ECE1;
+  padding:30px 0;
+}
+
+#main header::after {
+  content:'';
+  clear:both;
+  display: table;
+}
+
+#main header nav {
+  float:right;
+  text-align: right;
+}
+
+#main header nav a{
+  color: #666;
+  text-decoration: none;
+  font-size: 1.25em;
+  padding:10px 20px;
+  display: inline-block;
+}
+
+#main header nav a.active {
+  border-bottom:solid 2px #ED553B;
+}
+
+#main header .logo {
+  font-size:2em;
+  float:left;
+}
+
 
 #loginBox {
   text-align: center;

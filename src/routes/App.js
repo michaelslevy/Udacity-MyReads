@@ -19,6 +19,8 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
+document.body.classList.remove('login');
+
 class App extends Component {
 
   render() {

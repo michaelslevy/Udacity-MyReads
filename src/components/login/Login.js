@@ -22,10 +22,12 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-class Login extends Component {
-  componentDidMount() {
-    this.props.getPeople()
-  }
+  class Login extends Component {
+
+    componentDidMount() {
+      document.body.classList.add('login');
+      this.props.getPeople()
+   }
 
   loginUser = (user) => {
     this.props.loginUser(user);

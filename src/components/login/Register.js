@@ -24,6 +24,7 @@ const mapDispatchToProps = (dispatch) => {
 
 class Register extends Component {
   componentDidMount() {
+    document.body.classList.add('login');
     this.props.getPeople()
   }
 
