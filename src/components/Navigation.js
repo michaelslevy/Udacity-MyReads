@@ -7,8 +7,9 @@ import { Redirect } from 'react-router-dom'
 
 //function passed to Reduxes Connect to populate store
 const mapStateToProps = (store) => {
+  let username=(store.user.loggedInAs)?store.user.loggedInAs.name:""
   return {
-    users: store.user.users
+    loggedInUser: username
   }
 }
 
@@ -32,7 +33,7 @@ class Navigation extends Component {
   render(){
     return (
       <header className='layout'>
-        <div className='container'>
+        <div className='container clearfix'>
         <span className='logo'>
           Would You Rather?
         </span>
@@ -49,8 +50,14 @@ class Navigation extends Component {
             to='/new-question'
             className={this.props.newquestion}
           >New Question</Link>
-          <button onClick={(e) => this.logoutUser()}>Logout</button>
+
         </nav>
+          </div>
+          <div id='welcomeBar'>
+            <div className='container'>
+              Welcome { this.props.loggedInUser } 
+              <button onClick={(e) => this.logoutUser()}>Logout</button>
+            </div>
           </div>
         </header>
     );

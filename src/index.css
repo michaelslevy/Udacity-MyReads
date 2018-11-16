@@ -22,6 +22,7 @@ h1, .logo {
 }
 
 .container {
+  width:90%;
   max-width:900px;
   margin:0 auto;
 }
@@ -33,12 +34,18 @@ h1, .logo {
   color:#068587;
 }
 
+.clearfix::after {
+    display: table;
+    clear:both;
+    content: "";
+}
+
 /* Header */
 
 #main header {
   margin-bottom:50px;
   background: #F2ECE1;
-  padding:30px 0;
+  padding:30px 0 0 0;
 }
 
 #main header::after {
@@ -78,6 +85,23 @@ h1, .logo {
   float:left;
 }
 
+#welcomeBar {
+  clear: both;
+  background:rgba(6, 133, 135,.7);
+  color:white;
+  margin-top:30px;
+  padding:5px 0;
+}
+
+#welcomeBar button {
+  font-weight:bold;
+  border:0;
+  background:none;
+  color:white;
+  float:right;
+  padding-right: 20px;
+  cursor:pointer;
+}
 
 #loginBox {
   text-align: center;

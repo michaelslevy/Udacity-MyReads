@@ -32,6 +32,7 @@ class Home extends Component {
           <Navigation home='active' leaderboard='' newquestion='' />
           <div className='container'>
             <h1 >Welcome {this.props.loggedInUser.name}</h1>
+            <img src={this.props.loggedInUser.avatarURL} height='300' />
           </div>
 
        </div>
