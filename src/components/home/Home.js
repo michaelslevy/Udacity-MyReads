@@ -1,24 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux'
 import Navigation from '../Navigation'
 import HomeTabs from '../home/HomeTabs'
 import QuestionList from './QuestionList'
-
-
-//function passed to Reduxes Connect to populate store
-const mapStateToProps = (store) => {
-  return {
-
-  }
-}
-
-//function passed to Reduxes Connect to dispatch to props
-const mapDispatchToProps = (dispatch) => {
-  return {
-
-  }
-}
 
 class Home extends Component {
 
@@ -69,4 +53,4 @@ class Home extends Component {
 }
 
 //connects Login component to store
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default Home;
