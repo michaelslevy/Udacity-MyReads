@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Home from '../components/Home';
+import Home from '../components/home/Home';
 import Leaderboard from '../components/Leaderboard';
 import NewQuestion from '../components/NewQuestion'
 import { Route, Router, Switch, Redirect } from 'react-router-dom'

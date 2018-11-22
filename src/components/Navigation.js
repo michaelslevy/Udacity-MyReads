@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logout }  from '../actions/user'
-import { Redirect } from 'react-router-dom'
 
 
 //function passed to Reduxes Connect to populate store
@@ -55,7 +54,7 @@ class Navigation extends Component {
           </div>
           <div id='welcomeBar'>
             <div className='container'>
-              Welcome { this.props.loggedInUser } 
+              Welcome { this.props.loggedInUser }
               <button onClick={(e) => this.logoutUser()}>Logout</button>
             </div>
           </div>

@@ -15,7 +15,6 @@ const users = (state = initialState, action) => {
       }
 
     case "user/RECEIVED":
-    console.log('inside reducer received users', action)
       return {
         ...state,
         loading: false,

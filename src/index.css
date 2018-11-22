@@ -140,14 +140,15 @@ li {
   text-align: left;
 }
 
-.tabs {
+.login .tabs {
   position:absolute;
   top:0;
   left:0;
   top:-40px;
 }
 
-.tabs a {
+.tabs a,
+.tabs button {
   text-decoration: none;
   padding:0 10px;
   background:rgba(6,133,135,.7);
@@ -155,9 +156,11 @@ li {
   display: inline-block;
   line-height:40px;
   height:40px;
+  border:0;
 }
 
-.tabs a.active {
+.tabs a.active,
+.tabs button.active {
   background:rgba(6,133,135,1);
 }
 
@@ -199,4 +202,61 @@ li {
 
 #userSelector {
     position: relative;
+}
+
+/* Questions */
+
+#questionBox {
+  border:solid 1px rgba(6,133,135,1);
+  padding:0px;
+  max-width: 500px;
+  margin-bottom:40px;
+}
+
+.question {
+  padding:10px 30px 30px;
+}
+
+.question:nth-child(2n) {
+  background:#eee;
+}
+
+.img img {
+  width:80px;
+  display: block;
+  margin:0;
+}
+
+.question .body {
+  display: flex;
+}
+
+.question button {
+  background:#ED553B;
+  border:0;
+  padding:5px 10px;
+  color:white;
+  font-weight:bold;
+  margin-top:10px;
+}
+
+.question p strong {
+    color: #ccc;
+}
+
+#main .question header {
+
+  background:none;
+  padding:0;
+  margin: 0 0 20px 0;
+  font-weight: bold;
+
+}
+
+.question h2 {
+  margin-top:0;
+}
+
+.question .copy {
+  padding-left:30px;
 }
