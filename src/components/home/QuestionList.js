@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import {getQuestions}  from '../../actions/questions' //combine user actions into a single object
 import Question from "./Question"
+import {getUsers}  from '../../actions/user' //combine user actions into a single object
 
 //function passed to Reduxes Connect to populate store
 const mapStateToProps = (store) => {
   return {
-    questions: store.questions.questions
+    questions: store.questions.questions,
+    loggedInAs: store.user.loggedInAs
   }
 }
 
@@ -25,9 +27,12 @@ const mapDispatchToProps = (dispatch) => {
    }
 
    render() {
+     let userID=this.props.loggedInAs.id;
 
-     let questionsAnswerd=this.props.questions.filter(q=>q.optionOne.votes.includes("sarahedo") || q.optionTwo.votes.includes("sarahedo"))
-     let questionsUnanswerd=this.props.questions.filter(q=>q.optionOne.votes.includes("sarahedo")===false && q.optionTwo.votes.includes("sarahedo")==false)
+     let questionsAnswerd=this.props.questions.filter(q=>q.optionOne.votes.includes("sarahedo") || q.optionTwo.votes.includes(userID))
+     let questionsUnanswerd=this.props.questions.filter(q=>q.optionOne.votes.includes("sarahedo")===false && q.optionTwo.votes.includes(userID)==false)
+
+     console.log(questionsAnswerd.length, questionsUnanswerd.length)
 
      return (
             <div id="questionBox">
