@@ -26,6 +26,9 @@ const mapDispatchToProps = (dispatch) => {
 
    render() {
 
+     let questionsAnswerd=this.props.questions.filter(q=>q.optionOne.votes.includes("sarahedo") || q.optionTwo.votes.includes("sarahedo"))
+     let questionsUnanswerd=this.props.questions.filter(q=>q.optionOne.votes.includes("sarahedo")===false && q.optionTwo.votes.includes("sarahedo")==false)
+
      return (
             <div id="questionBox">
             {this.props.questions && this.props.questions.length ?

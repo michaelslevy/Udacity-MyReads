@@ -22,11 +22,10 @@ const mapDispatchToProps = (dispatch) => {
 
     componentDidMount() {
       this.props.getPeople();
-      console.log(this.props.question);
    }
 
    render() {
-
+     
      let author=this.props.users.filter((user)=>user.id==this.props.question.author);
      let optionOne=this.props.question.optionOne.text;
      let optionTwo=this.props.question.optionTwo.text;
