@@ -211,10 +211,15 @@ li {
   padding:0px;
   max-width: 500px;
   margin-bottom:40px;
+  box-shadow: 4px 4px 8px #ccc;
+}
+
+.poll #questionBox {
+  padding:30px;
 }
 
 .question {
-  padding:10px 30px 30px;
+  padding:15px 30px 30px;
 }
 
 .question:nth-child(2n) {
@@ -231,14 +236,30 @@ li {
   display: flex;
 }
 
-.question button {
+.question a.link,
+ button.answer {
   background:#ED553B;
   border:0;
   padding:5px 10px;
   color:white;
   font-weight:bold;
   margin-top:10px;
+  text-decoration:none;
+  display: inline-block;
+  transition: background .5s;
 }
+
+ button.answer {
+   font-size:1.1em;
+   text-align:center;
+   border-radius:8px;
+   min-width:300px;
+   padding:5px 10px;
+ }
+ button.answer:hover,
+ .question a.link:hover {
+   background:rgba(6, 133, 135,1);
+ }
 
 .question p strong {
     color: #ccc;
@@ -247,9 +268,9 @@ li {
 #main .question header {
 
   background:none;
-  padding:0;
   margin: 0 0 20px 0;
   font-weight: bold;
+  padding:0;
 
 }
 

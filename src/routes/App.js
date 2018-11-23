@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Home from '../components/home/Home';
+import QuestionDetail from '../components/home/QuestionDetail';
 import Leaderboard from '../components/Leaderboard';
 import NewQuestion from '../components/NewQuestion'
 import { Route, Router, Switch, Redirect } from 'react-router-dom'
@@ -29,7 +30,8 @@ class App extends Component {
           <Switch>
               <Route path="/" exact  component={Home} />
               <Route path="/leaderboard"  component={Leaderboard} />
-              <Route path="/new-question"  component={NewQuestion} />
+              <Route path="/add"  component={NewQuestion} />
+              <Route path="/questions/:questionId" component={QuestionDetail} />
           </Switch>
         )
       }

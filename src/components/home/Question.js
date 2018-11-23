@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import * as userActionCreators  from '../../actions/user' //combine user actions into a single object
+import { Link } from 'react-router-dom'
 
 
 //function passed to Reduxes Connect to populate store
@@ -25,7 +26,7 @@ const mapDispatchToProps = (dispatch) => {
    }
 
    render() {
-     
+
      let author=this.props.users.filter((user)=>user.id==this.props.question.author);
      let optionOne=this.props.question.optionOne.text;
      let optionTwo=this.props.question.optionTwo.text;
@@ -41,7 +42,7 @@ const mapDispatchToProps = (dispatch) => {
                     <h2>Would you rather?</h2>
                     <p><strong>►</strong> {optionOne}</p>
                     <p><strong>►</strong> {optionTwo}</p>
-                    <button>Go to poll</button>
+                    <Link to={"questions/"+this.props.question.id} className='link'>Go to poll</Link>
                   </div>
                 </div>
             </div>

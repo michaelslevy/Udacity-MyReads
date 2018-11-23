@@ -28,14 +28,17 @@ const mapDispatchToProps = (dispatch) => {
 
    render() {
      let userID=this.props.loggedInAs.id;
-
-     let questionsAnswerd=this.props.questions.filter(q=>q.optionOne.votes.includes("sarahedo") || q.optionTwo.votes.includes(userID))
-     let questionsUnanswerd=this.props.questions.filter(q=>q.optionOne.votes.includes("sarahedo")===false && q.optionTwo.votes.includes(userID)==false)
+     let questionsFiltered;
+    if(this.props.display=="Unanswered"){
+      questionsFiltered=this.props.questions.filter(q=>q.optionOne.votes.includes("sarahedo")===false && q.optionTwo.votes.includes(userID)==false);
+    } else {
+      questionsFiltered=this.props.questions.filter(q=>q.optionOne.votes.includes("sarahedo") || q.optionTwo.votes.includes(userID));
+    }
 
      return (
             <div id="questionBox">
-            {this.props.questions && this.props.questions.length ?
-              this.props.questions.map((question) => {
+            {questionsFiltered && questionsFiltered.length>0 ?
+              questionsFiltered.map((question) => {
                 return <Question key={question.id} question={question} />
               })
             :<div className="question">Loading</div>}
