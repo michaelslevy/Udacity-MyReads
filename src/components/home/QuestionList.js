@@ -30,9 +30,9 @@ const mapDispatchToProps = (dispatch) => {
      let userID=this.props.loggedInAs.id;
      let questionsFiltered;
     if(this.props.display=="Unanswered"){
-      questionsFiltered=this.props.questions.filter(q=>q.optionOne.votes.includes("sarahedo")===false && q.optionTwo.votes.includes(userID)==false);
+      questionsFiltered=this.props.questions.filter(q=>q.optionOne.votes.includes(userID)===false && q.optionTwo.votes.includes(userID)==false);
     } else {
-      questionsFiltered=this.props.questions.filter(q=>q.optionOne.votes.includes("sarahedo") || q.optionTwo.votes.includes(userID));
+      questionsFiltered=this.props.questions.filter(q=>q.optionOne.votes.includes(userID) || q.optionTwo.votes.includes(userID));
     }
 
      return (

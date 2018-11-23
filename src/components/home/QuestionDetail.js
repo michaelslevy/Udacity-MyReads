@@ -12,7 +12,8 @@ import HomeTabs from '../home/HomeTabs'
 const mapStateToProps = (store) => {
   return {
     questions: store.questions.questions,
-    users: store.user.users
+    users: store.user.users,
+    loggedInAs: store.user.loggedInAs
   }
 }
 
@@ -25,14 +26,34 @@ const mapDispatchToProps = (dispatch) => {
 
   class QuestionDetail extends Component {
 
+    constructor() {
+        super();
+        this.state={
+          unanswered:true
+        }
+      }
+
     componentDidMount() {
-      this.props.getQuestions()
-   }
+        this.props.getQuestions();
+
+        //find if current user has answered questions
+        let questionID=this.props.match.params.questionId;
+        let question=this.props.questions.filter(q=>q.id===questionID);
+        //let questionsFiltered=this.props.questions.filter(q=>q.optionOne.votes.includes("sarahedo")===false && q.optionTwo.votes.includes(userID)==false);
+        let loggedinID=this.props.loggedInAs.id;
+
+        //set the state of the component to unanswered or answered
+        if(question[0].optionOne.votes.includes(loggedinID) || question[0].optionTwo.votes.includes(loggedinID)){
+          this.setState({unanswered:false});
+        } else {
+          this.setState({unanswered:true});
+        }
+    }
 
      answerQuestion = (option) => {
        alert(option);
-      // this.props.loginUser(user);
-       //this.props.history.push("/");
+      // this.props.AnswerQuestion(questionID,userID);
+      //set unanswered state;
 
      }
 
@@ -44,6 +65,17 @@ const mapDispatchToProps = (dispatch) => {
      let author=this.props.users.filter((user)=>user.id==authorID);
      let optionOne=question[0].optionOne.text;
      let optionTwo=question[0].optionTwo.text;
+
+     let QuestionDisplay;
+     if(this.state.unanswered==true){
+        QuestionDisplay=
+        <div className='QuestionDisplay'>
+          <p><button onClick={()=>this.answerQuestion(1)} className='answer'> {optionOne}</button></p>
+          <p><button onClick={()=>this.answerQuestion(2)} className='answer' > {optionTwo}</button></p>;
+       </div>
+     } else {
+        QuestionDisplay=<p>Already Answered</p>;
+     }
 
      return (
        <div id='main' className='poll'>
@@ -57,8 +89,7 @@ const mapDispatchToProps = (dispatch) => {
                   </div>
                   <div className='copy'>
                     <h2>Would you rather?</h2>
-                    <p><button onClick={()=>this.answerQuestion(1)} className='answer'> {optionOne}</button></p>
-                    <p><button onClick={()=>this.answerQuestion(2)} className='answer' > {optionTwo}</button></p>
+                    {QuestionDisplay}
                   </div>
                 </div>
             </div>
