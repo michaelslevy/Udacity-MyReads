@@ -6,7 +6,6 @@ import {getUsers}  from '../../actions/user' //combine user actions into a singl
 import Question from "./Question"
 import Navigation from '../Navigation'
 import HomeTabs from '../home/HomeTabs'
-import QuestionDetailUnanswered from '../home/QuestionDisplayUnanswered'
 
 
 //function passed to Reduxes Connect to populate store
@@ -25,17 +24,10 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-  class QuestionDetail extends Component {
-
-    constructor() {
-        super();
-        this.state={
-          unanswered:true
-        }
-      }
+  class QuestionDetailUnanswered extends Component {
 
     componentDidMount() {
-        this.props.getQuestions();
+      /*  this.props.getQuestions();
 
         //find if current user has answered questions
         let questionID=this.props.match.params.questionId;
@@ -48,7 +40,7 @@ const mapDispatchToProps = (dispatch) => {
           this.setState({unanswered:false});
         } else {
           this.setState({unanswered:true});
-        }
+        }*/
     }
 
      answerQuestion = (option) => {
@@ -60,40 +52,21 @@ const mapDispatchToProps = (dispatch) => {
 
 
    render() {
-     let questionID=this.props.match.params.questionId;
+    /* let questionID=this.props.match.params.questionId;
      let question=this.props.questions.filter(q=>q.id===questionID);
-     let authorID=question[0].author;
      let author=this.props.users.filter((user)=>user.id==authorID);
      let optionOne=question[0].optionOne.text;
-     let optionTwo=question[0].optionTwo.text;
-
-     let QuestionDisplay;
-     if(this.state.unanswered==true){
-        QuestionDisplay=<QuestionDetailUnanswered />
-     } else {
-        QuestionDisplay=<p>Already Answered</p>;
-     }
+     let optionTwo=question[0].optionTwo.text;/*/
+     let optionOne='question';
+     let optionTwo='question2'
 
      return (
-       <div id='main' className='poll'>
-          <Navigation home='active' leaderboard='' newquestion='' />
-          <div className='container'>
-            <div className="question" id="questionBox">
-                <header>{author[0].name} Asks:</header>
-                <div className='body'>
-                  <div className='img'>
-                    <img src={author[0].avatarURL}/>
-                  </div>
-                  <div className='copy'>
-                    <h2>Would you rather?</h2>
-                    {QuestionDisplay}
-                  </div>
-                </div>
-            </div>
-          </div>
-      </div>
+          <div className='QuestionDisplay'>
+            <p><button onClick={()=>this.answerQuestion(1)} className='answer'> {optionOne}</button></p>
+            <p><button onClick={()=>this.answerQuestion(2)} className='answer' > {optionTwo}</button></p>;
+         </div>
      );
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(QuestionDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(QuestionDetailUnanswered);
