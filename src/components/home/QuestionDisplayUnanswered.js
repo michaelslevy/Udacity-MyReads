@@ -11,7 +11,6 @@ import HomeTabs from '../home/HomeTabs'
 //function passed to Reduxes Connect to populate store
 const mapStateToProps = (store) => {
   return {
-    questions: store.questions.questions,
     users: store.user.users,
     loggedInAs: store.user.loggedInAs
   }
@@ -26,44 +25,21 @@ const mapDispatchToProps = (dispatch) => {
 
   class QuestionDetailUnanswered extends Component {
 
-    componentDidMount() {
-      /*  this.props.getQuestions();
-
-        //find if current user has answered questions
-        let questionID=this.props.match.params.questionId;
-        let question=this.props.questions.filter(q=>q.id===questionID);
-        //let questionsFiltered=this.props.questions.filter(q=>q.optionOne.votes.includes("sarahedo")===false && q.optionTwo.votes.includes(userID)==false);
-        let loggedinID=this.props.loggedInAs.id;
-
-        //set the state of the component to unanswered or answered
-        if(question[0].optionOne.votes.includes(loggedinID) || question[0].optionTwo.votes.includes(loggedinID)){
-          this.setState({unanswered:false});
-        } else {
-          this.setState({unanswered:true});
-        }*/
-    }
-
      answerQuestion = (option) => {
        alert(option);
-      // this.props.AnswerQuestion(questionID,userID);
-      //set unanswered state;
-
+       let questionID=this.props.question.id;
+       let loggedinID=this.props.loggedInAs.id;
      }
 
 
    render() {
-    /* let questionID=this.props.match.params.questionId;
-     let question=this.props.questions.filter(q=>q.id===questionID);
-     let author=this.props.users.filter((user)=>user.id==authorID);
-     let optionOne=question[0].optionOne.text;
-     let optionTwo=question[0].optionTwo.text;/*/
-     let optionOne='question';
-     let optionTwo='question2'
+     let optionOne=this.props.question.optionOne.text;
+     let optionTwo=this.props.question.optionTwo.text;
 
      return (
           <div className='QuestionDisplay'>
-            <p><button onClick={()=>this.answerQuestion(1)} className='answer'> {optionOne}</button></p>
-            <p><button onClick={()=>this.answerQuestion(2)} className='answer' > {optionTwo}</button></p>;
+            <p><button onClick={()=>this.answerQuestion("optionOne")} className='answer'> {optionOne}</button></p>
+            <p><button onClick={()=>this.answerQuestion("optionTwo")} className='answer'> {optionTwo}</button></p>;
          </div>
      );
   }

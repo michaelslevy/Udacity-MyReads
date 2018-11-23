@@ -51,25 +51,15 @@ const mapDispatchToProps = (dispatch) => {
         }
     }
 
-     answerQuestion = (option) => {
-       alert(option);
-      // this.props.AnswerQuestion(questionID,userID);
-      //set unanswered state;
-
-     }
-
-
    render() {
      let questionID=this.props.match.params.questionId;
      let question=this.props.questions.filter(q=>q.id===questionID);
      let authorID=question[0].author;
      let author=this.props.users.filter((user)=>user.id==authorID);
-     let optionOne=question[0].optionOne.text;
-     let optionTwo=question[0].optionTwo.text;
 
      let QuestionDisplay;
      if(this.state.unanswered==true){
-        QuestionDisplay=<QuestionDetailUnanswered />
+        QuestionDisplay=<QuestionDetailUnanswered question={question[0]} />
      } else {
         QuestionDisplay=<p>Already Answered</p>;
      }
