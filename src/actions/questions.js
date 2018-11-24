@@ -1,4 +1,4 @@
-import {_getQuestions} from '../utils/api';
+import {_getQuestions, _saveQuestionAnswer} from '../utils/api';
 
 const requestQuestions = users => ({
   type: 'questions/REQUESTED'
@@ -33,4 +33,22 @@ export const getQuestions = () => {
     });
 
   }
+}
+
+export const saveQuestionAnswer = (authedUser, qid, answer) => {
+  console.log("/actions/saveQuestionsAnwer");
+  _saveQuestionAnswer({authedUser, qid, answer});
+  /*
+  return (dispatch) => {
+    //perform API call
+    _saveQuestionAnswer(authedUser, qid, answer).then(question => {
+      //if successful disatch requestUserSuccess updates Store
+      //dispatch(saveQuestions(questions));
+      console.log("SAVED",question);
+    }).catch(error => {
+      console.log(error);
+    //  dispatch(saveQuestionsFailure(error));
+    });
+
+  }*/
 }

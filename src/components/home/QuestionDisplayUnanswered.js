@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
-import {getQuestions}  from '../../actions/questions' //combine user actions into a single object
+import {getQuestions, saveQuestionAnswer }  from '../../actions/questions' //combine user actions into a single object
 import {getUsers}  from '../../actions/user' //combine user actions into a single object
 import Question from "./Question"
 import Navigation from '../Navigation'
 import HomeTabs from '../home/HomeTabs'
-
 
 //function passed to Reduxes Connect to populate store
 const mapStateToProps = (store) => {
@@ -19,16 +18,18 @@ const mapStateToProps = (store) => {
 //function passed to Reduxes Connect to dispatch to props
 const mapDispatchToProps = (dispatch) => {
   return {
-      getQuestions: () => dispatch(getQuestions())
+      getQuestions: () => dispatch(getQuestions()),
+      saveQuestionAnswer:(authedUser, qid, answer)=>dispatch(saveQuestionAnswer(authedUser, qid, answer))
   }
 }
 
   class QuestionDetailUnanswered extends Component {
 
-     answerQuestion = (option) => {
-       alert(option);
+     answerQuestion = (answer) => {
        let questionID=this.props.question.id;
        let loggedinID=this.props.loggedInAs.id;
+
+       saveQuestionAnswer(loggedinID, questionID, answer);
      }
 
 
