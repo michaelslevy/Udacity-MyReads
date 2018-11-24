@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Home from '../components/home/Home';
 import QuestionDetail from '../components/home/QuestionDetail';
-import Leaderboard from '../components/Leaderboard';
-import NewQuestion from '../components/NewQuestion'
+import Leaderboard from '../components/leaderboard/';
+import NewQuestion from '../components/newQuestion'
 import { Route, Router, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 

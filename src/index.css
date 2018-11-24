@@ -266,8 +266,35 @@ time {
    background:rgba(6, 133, 135,1);
  }
 
-.question p strong {
+.indicator {
     color: #ccc;
+}
+.indicator.active {
+  color:#ED553B;
+}
+
+.indicatorText {
+  display:inline-block;
+  padding-left:10px;
+  font-weight:bold;
+  color:#bbb;
+}
+
+.question mark {
+  background: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-left:5px;
+}
+
+.answered h3 {
+  margin-bottom:0;
+  padding-bottom:0;
+}
+
+.answered p {
+  margin-top:0;
+  padding-top:0;
 }
 
 #main .question header {

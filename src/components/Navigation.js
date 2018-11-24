@@ -46,7 +46,7 @@ class Navigation extends Component {
             className={this.props.leaderboard}
           >Leaderboard</Link>
           <Link
-            to='/new-question'
+            to='/add'
             className={this.props.newquestion}
           >New Question</Link>
 

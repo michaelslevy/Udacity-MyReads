@@ -7,6 +7,7 @@ import Question from "./Question"
 import Navigation from '../Navigation'
 import HomeTabs from '../home/HomeTabs'
 import QuestionDetailUnanswered from '../home/QuestionDisplayUnanswered'
+import {QuestionDetailAnswered} from '../home/QuestionDisplayAnswered'
 
 
 //function passed to Reduxes Connect to populate store
@@ -63,7 +64,7 @@ const mapDispatchToProps = (dispatch) => {
      if(this.state.unanswered==true){
         QuestionDisplay=<QuestionDetailUnanswered answerQuestion={answerQuestion} question={question[0]} />
      } else {
-        QuestionDisplay=<p>Already Answered</p>;
+        QuestionDisplay=<QuestionDetailAnswered loggedInID={this.props.loggedInAs.id} question={question[0]} />
      }
 
      return (

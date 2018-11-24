@@ -42,8 +42,8 @@ const mapDispatchToProps = (dispatch) => {
                   </div>
                   <div className='copy'>
                     <h2>Would you rather?</h2>
-                    <p><strong>►</strong> {optionOne}</p>
-                    <p><strong>►</strong> {optionTwo}</p>
+                    <p><span className='indicator'>►</span> {optionOne}</p>
+                    <p><span className='indicator'>►</span> {optionTwo}</p>
                     <Link to={"questions/"+this.props.question.id} className='link'>Go to poll</Link>
                   </div>
                 </div>

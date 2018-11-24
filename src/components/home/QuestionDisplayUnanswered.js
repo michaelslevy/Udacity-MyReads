@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import {getQuestions, saveQuestionAnswer }  from '../../actions/questions' //combine user actions into a single object
 import {getUsers}  from '../../actions/user' //combine user actions into a single object
-import Question from "./Question"
-import Navigation from '../Navigation'
-import HomeTabs from '../home/HomeTabs'
 
 //function passed to Reduxes Connect to populate store
 const mapStateToProps = (store) => {

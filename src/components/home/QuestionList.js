@@ -29,21 +29,26 @@ const mapDispatchToProps = (dispatch) => {
    render() {
      let userID=this.props.loggedInAs.id;
      let questionsFiltered;
-    if(this.props.display=="Unanswered"){
-      questionsFiltered=this.props.questions.filter(q=>q.optionOne.votes.includes(userID)===false && q.optionTwo.votes.includes(userID)==false);
-    } else {
-      questionsFiltered=this.props.questions.filter(q=>q.optionOne.votes.includes(userID) || q.optionTwo.votes.includes(userID));
-    }
+     if(this.props.display=="Unanswered"){
+       questionsFiltered=this.props.questions.filter(q=>q.optionOne.votes.includes(userID)===false && q.optionTwo.votes.includes(userID)==false);
+     } else {
+       questionsFiltered=this.props.questions.filter(q=>q.optionOne.votes.includes(userID) || q.optionTwo.votes.includes(userID));
+     }
+
+     let list;
+
+     if(questionsFiltered && questionsFiltered.length>0) {
+       list=questionsFiltered.map((question) => {
+         return <Question key={question.id} question={question} />
+       })
+     } else {
+       list=<div className="question">Not found..</div>;
+     }
 
      return (
             <div id="questionBox">
-            {questionsFiltered && questionsFiltered.length>0 ?
-              questionsFiltered.map((question) => {
-                return <Question key={question.id} question={question} />
-              })
-            :<div className="question">Loading</div>}
+              {list}
             </div>
-
      );
   }
 }
