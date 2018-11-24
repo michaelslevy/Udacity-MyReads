@@ -29,8 +29,18 @@ class NewQuestion extends Component {
       }
     }
 
-    saveQuestion=()=>{
+    validateForm=()=>{
+      let l1=document.getElementById('optionOneInput').value.length;
+      let l2=document.getElementById('optionTwoInput').value.length;
+      (l1>1 && l2>1)?this.setState({disabled:""}):this.setState({disabled:"disabled"});
+    }
+
+    saveQuestion=(e)=>{
+
+      (this.state.disabled==="disabled")?
+      alert("disabled"):
       alert("saving question");
+      e.preventDefault();
     }
 
    render() {
@@ -42,9 +52,9 @@ class NewQuestion extends Component {
             <h1>New Question</h1>
             <h2>Would you rather?</h2>
             <form id='questionForm' className={this.state.disabled}>
-              <input placeholder='Option one' id='optionOneInput'  />
-              <input placeholder='Option two' id='optionTwoInput'  />
-              <button className='submit' onClick={()=>this.saveQuestion()} >Submit</button>
+              <input placeholder='Option one' id='optionOneInput' onChange={()=>this.validateForm()}  />
+              <input placeholder='Option two' id='optionTwoInput' onChange={()=>this.validateForm()} />
+              <button className='submit' onClick={(e)=>this.saveQuestion(e)} >Submit</button>
             </form>
           </div>
 
