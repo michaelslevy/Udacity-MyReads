@@ -26,6 +26,7 @@ class Leaderboard extends Component {
           <Navigation home='' leaderboard='active' newquestion='' />
           <div className='container'>
             <h1 >Leaderboard</h1>
+            <p> My Leaderboard</p>
           </div>
        </div>
      );
