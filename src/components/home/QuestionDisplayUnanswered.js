@@ -29,7 +29,7 @@ const mapDispatchToProps = (dispatch) => {
        let questionID=this.props.question.id;
        let loggedinID=this.props.loggedInAs.id;
 
-       saveQuestionAnswer(loggedinID, questionID, answer);
+       this.props.saveQuestionAnswer(loggedinID, questionID, answer);
      }
 
 

@@ -35,7 +35,7 @@ export const getUsers = () => {
     //perform API call
     _getUsers().then(users => {
       //if successful disatch requestUserSuccess updates Store
-      dispatch(requestUsersSuccess(users));
+      dispatch(requestUsersSuccess(Object.values(users)));
     }).catch(error => {
       //if error disatch requestUsersFailure updates Store
       dispatch(requestUsersFailure(error));
