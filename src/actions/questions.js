@@ -24,7 +24,7 @@ export const getQuestions = () => {
     //perform API call
     _getQuestions().then(questions => {
       //if successful disatch requestUserSuccess updates Store
-        dispatch(requestQuestionsSuccess(Object.values(questions)));
+        dispatch(requestQuestionsSuccess(Object.values(questions).sort((a,b) => b.timestamp - a.timestamp) ));
     }).catch(error => {
       //if error disatch requestUsersFailure updates Store
       dispatch(requestQuestionsFailure(error));

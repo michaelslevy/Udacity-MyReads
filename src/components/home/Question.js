@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import * as userActionCreators  from '../../actions/user' //combine user actions into a single object
 import { Link } from 'react-router-dom'
+import {convertTimestamp} from '../../utils/helpers.js'
 
 
 //function passed to Reduxes Connect to populate store
@@ -30,10 +31,11 @@ const mapDispatchToProps = (dispatch) => {
      let author=this.props.users.filter((user)=>user.id==this.props.question.author);
      let optionOne=this.props.question.optionOne.text;
      let optionTwo=this.props.question.optionTwo.text;
+     let time=convertTimestamp(this.props.question.timestamp);
 
      return (
             <div className="question">
-                <header>{author[0].name} Asks:</header>
+                <header>{author[0].name} Asks:<br/><time>{time}</time></header>
                 <div className='body'>
                   <div className='img'>
                     <img src={author[0].avatarURL}/>

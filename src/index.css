@@ -214,6 +214,11 @@ li {
   box-shadow: 4px 4px 8px #ccc;
 }
 
+time {
+  color:#ccc;
+  font-size:.8em;
+}
+
 .poll #questionBox {
   padding:30px;
 }
