@@ -30,6 +30,7 @@ const mapDispatchToProps = (dispatch) => {
        let loggedinID=this.props.loggedInAs.id;
 
        this.props.saveQuestionAnswer(loggedinID, questionID, answer);
+       this.props.answerQuestion();
      }
 
 

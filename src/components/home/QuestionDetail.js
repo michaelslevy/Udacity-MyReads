@@ -57,9 +57,11 @@ const mapDispatchToProps = (dispatch) => {
      let authorID=question[0].author;
      let author=this.props.users.filter((user)=>user.id==authorID);
 
+     const answerQuestion=()=>{ this.setState({unanswered:false}); }
+
      let QuestionDisplay;
      if(this.state.unanswered==true){
-        QuestionDisplay=<QuestionDetailUnanswered question={question[0]} />
+        QuestionDisplay=<QuestionDetailUnanswered answerQuestion={answerQuestion} question={question[0]} />
      } else {
         QuestionDisplay=<p>Already Answered</p>;
      }
