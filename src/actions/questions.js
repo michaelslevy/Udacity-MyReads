@@ -1,4 +1,4 @@
-import {_getQuestions, _saveQuestionAnswer} from '../utils/api';
+import {_getQuestions, _saveQuestionAnswer, _saveQuestion} from '../utils/api';
 
 const requestQuestions = users => ({
   type: 'questions/REQUESTED'
@@ -13,6 +13,11 @@ const requestQuestionsFailure = err => ({
   type: 'questions/FAILURE',
   err
 });
+
+const appendNewQuestion=question=>({
+  type:'questions/APPEND',
+  question
+})
 
 //uses middleware to perform api call
 //because action itself must be a pure function
@@ -43,4 +48,12 @@ export const saveQuestionAnswer = (authedUser, qid, answer) => {
   });
 
   }
+}
+
+export const saveQuestion=(question)=>{
+    return (dispatch) => {
+        _saveQuestion(question).then(question=>{
+          dispatch(appendNewQuestion(question));
+        });
+    }
 }

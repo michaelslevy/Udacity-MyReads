@@ -1,5 +1,5 @@
 const initialState = {
-  loading: false,
+  loading: true,
   questions: []
 }
 
@@ -29,6 +29,15 @@ const questions = (state = initialState, action) => {
         questions:[],
         error: action.error
       }
+
+    case "questions/APPEND":
+        console.log(action);
+        return {
+          ...state,
+          loading:false,
+          questions: [...state.questions, action.question],
+          error:false
+        }
 
     default:
       return state
