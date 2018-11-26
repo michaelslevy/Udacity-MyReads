@@ -117,14 +117,19 @@ li {
   background: #068587;
   padding:20px;
   border-radius: 5px;
-  border-top-left-radius: 0;
   position: relative;
-  margin-top:100px;
+  margin-top:60px;
 }
 
 #loginBox {
   max-width:600px;
-  margin:0 auto;
+  margin:60px auto;
+}
+
+#loginBox h2 {
+  text-align: left;
+
+  color:white;
 }
 
 #loginBox .input {
@@ -204,6 +209,15 @@ li {
     position: relative;
 }
 
+.loadingBar {
+  display: block;
+  margin:10px auto;
+}
+
+.loading {
+  text-align: center;
+}
+
 /* Questions */
 
 #questionBox {
@@ -253,6 +267,12 @@ time {
   text-decoration:none;
   display: inline-block;
   transition: background .5s;
+}
+
+button.answer {
+  min-width:300px;
+  border-radius: 100px;
+  font-size:1.2em;
 }
 
 form {
@@ -352,4 +372,50 @@ form {
   padding:5px 10px;
   margin-bottom:20px;
   width:400px;
+}
+
+.userInfo img {
+  max-width:80px;
+}
+
+.UserScoreCard h2 {
+    padding-top:0;
+    margin-top:0;
+    font-size:1.2em;
+}
+
+.UserScoreCard {
+  padding:20px;
+}
+
+.cardData {
+  display: flex;
+}
+
+.UserScoreCard:nth-child(2n){
+  background:#eee;
+}
+
+.UserScoreCard .content {
+  padding:0 40px;
+}
+
+.UserScoreCard .content p{
+  margin:0 0 20px 0;
+}
+
+.score {
+  font-weight:bold;
+  text-align:center;
+}
+
+.score mark {
+  background: rgba(6, 133, 135,1);
+  height:50px;
+  width:50px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50px;
+  display: block;
+  color:white;
 }

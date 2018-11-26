@@ -30,6 +30,29 @@ const questions = (state = initialState, action) => {
         error: action.error
       }
 
+      case "questions/UPDATEANSWER":
+
+        let qid=action.answer.qid;
+        let answer=action.answer.answer;
+        let authedUser=action.answer.authedUser
+
+        let newQuestions=[...state.questions];
+        for (let i=0; i<newQuestions.length; i++ ){
+          console.log(newQuestions[i].id, qid, newQuestions[i].id==qid);
+          if(newQuestions[i].id==qid){
+            let votes=newQuestions[i][answer]['votes'];
+            newQuestions[i][answer]['votes']=[...votes,authedUser]
+            console.log(newQuestions[i][answer]);
+          }
+        }
+        //console.log(newQuestions);
+        return {
+          ...state,
+          loading: false,
+          questions:newQuestions,
+          error: action.error
+        }
+
     case "questions/APPEND":
         console.log(action);
         return {

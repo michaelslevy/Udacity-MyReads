@@ -5,6 +5,7 @@ import Leaderboard from '../components/leaderboard/Leaderboard';
 import NewQuestion from '../components/newQuestion/NewQuestion'
 import { Route, Router, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
+import NotFound from '../components/NotFound'
 
 //function passed to Reduxes Connect to populate store
 const mapStateToProps = (store) => {
@@ -29,9 +30,11 @@ class App extends Component {
         return (
           <Switch>
               <Route path="/" exact  component={Home} />
-              <Route path="/leaderboard"  component={Leaderboard} />
-              <Route path="/add"  component={NewQuestion} />
-              <Route path="/questions/:questionId" component={QuestionDetail} />
+              <Route path="/leaderboard" exact component={Leaderboard} />
+              <Route path="/add" exact component={NewQuestion} />
+              <Route path="/questions/:questionId" exact component={QuestionDetail} />
+              <Route component={NotFound} />
+
           </Switch>
         )
       }

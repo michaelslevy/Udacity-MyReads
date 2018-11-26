@@ -37,7 +37,7 @@ const mapDispatchToProps = (dispatch) => {
 
     componentDidMount() {
         this.props.getQuestions();
-
+        console.log(this.props.questions);
         //find if current user has answered questions
         let questionID=this.props.match.params.questionId;
         let question=this.props.questions.filter(q=>q.id===questionID);

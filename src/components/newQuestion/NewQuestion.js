@@ -52,7 +52,7 @@ class NewQuestion extends Component {
         this.setState({error: "Add both questions to continue."})
       } else {
         this.props.saveQuestion(question);
-        
+        this.props.history.push('/')
       }
 
     }

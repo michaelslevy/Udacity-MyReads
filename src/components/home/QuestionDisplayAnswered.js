@@ -6,8 +6,8 @@ export const QuestionDetailAnswered =(props) => {
     let optionOneTotal=props.question.optionOne.votes.length;
     let optionTwoTotal=props.question.optionTwo.votes.length;
     let totalAnswered=optionOneTotal+optionTwoTotal;
-    let optionOnePercent=(optionOneTotal/totalAnswered)*100;
-    let optionTwoPercent=(optionTwoTotal/totalAnswered)*100;
+    let optionOnePercent=parseInt((optionOneTotal/totalAnswered)*100);
+    let optionTwoPercent=parseInt((optionTwoTotal/totalAnswered)*100);
     let optionOneIndicatorText, optionTwoIndicatorText;
 
     let optionOneActive;
@@ -21,7 +21,7 @@ export const QuestionDetailAnswered =(props) => {
       optionOneActive="indicator";
       optionTwoActive="indicator active";
       optionOneIndicatorText='';
-      optionTwoIndicatorText=<span class='indicatorText'>YOUR CHOICE'</span>;
+      optionTwoIndicatorText=<span className='indicatorText'>YOUR CHOICE'</span>;
     }
 
      return (
@@ -30,8 +30,7 @@ export const QuestionDetailAnswered =(props) => {
             <p><strong className='votesLabel'>Votes: </strong>
               (
               {optionOneTotal} of
-              {totalAnswered})
-              {optionOnePercent}%
+              {totalAnswered}) {optionOnePercent}%
               {optionOneIndicatorText}
 
             </p>
@@ -40,8 +39,7 @@ export const QuestionDetailAnswered =(props) => {
               <p><strong className='votesLabel'>Votes: </strong>
                 (
                 {optionTwoTotal} of
-                {totalAnswered})
-                {optionTwoPercent}%
+                {totalAnswered}) {optionTwoPercent}%
                 {optionTwoIndicatorText}
               </p>
          </div>

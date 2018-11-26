@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
-import LoginTabs from './LoginTabs'
 import * as userActionCreators  from '../../actions/user' //combine user actions into a single object
 import { Redirect } from 'react-router-dom'
+import loadingBar from '../../ajax-loader.gif'
 
 //function passed to Reduxes Connect to populate store
 const mapStateToProps = (store) => {
@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     //getPeople is a function that returns users
     //getUser is a user action that that connects to Thunk middleware
-      getPeople: () => dispatch(userActionCreators.getUsers()),
+      getUsers: () => dispatch(userActionCreators.getUsers()),
       loginUser: (user) => dispatch(userActionCreators.login(user))
   }
 }
@@ -26,7 +26,7 @@ const mapDispatchToProps = (dispatch) => {
 
     componentDidMount() {
       document.body.classList.add('login');
-      this.props.getPeople()
+      this.props.getUsers()
    }
 
   loginUser = (user) => {
@@ -39,8 +39,8 @@ const mapDispatchToProps = (dispatch) => {
      return (
        <div id='loginBox'>
           <h1 className='logo'>Would you rather?</h1>
+
           <div id='selectBox'>
-            <LoginTabs login='active' register='' />
             <div id='userSelector'>
             <div className='input'>please select user</div>
             <ul>
@@ -49,7 +49,7 @@ const mapDispatchToProps = (dispatch) => {
               this.props.users.map((user, i) => {
                 return <li onClick={() => this.loginUser(user)} key={i}><img src={user.avatarURL} align='absmiddle' />{user.name}</li>
               })
-            : <li>Loading</li>}
+            : <li className='loading' ><img src={loadingBar} /></li>}
             </ul>
 
             </div>

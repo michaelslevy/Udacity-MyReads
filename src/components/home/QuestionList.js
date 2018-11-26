@@ -4,10 +4,12 @@ import { connect } from 'react-redux'
 import {getQuestions}  from '../../actions/questions' //combine user actions into a single object
 import Question from "./Question"
 import {getUsers}  from '../../actions/user' //combine user actions into a single object
+import loadingBar from '../../ajax-loader.gif'
 
 //function passed to Reduxes Connect to populate store
 const mapStateToProps = (store) => {
   return {
+    loading:store.questions.loading,
     questions: store.questions.questions,
     loggedInAs: store.user.loggedInAs
   }
@@ -23,7 +25,7 @@ const mapDispatchToProps = (dispatch) => {
   class QuestionList extends Component {
 
     componentDidMount() {
-      this.props.getQuestions()
+      this.props.getQuestions();
    }
 
    render() {
@@ -37,8 +39,10 @@ const mapDispatchToProps = (dispatch) => {
 
      let list;
 
-     if(questionsFiltered && questionsFiltered.length>0) {
-       list=questionsFiltered.map((question) => {
+     if(this.props.loading==true){
+        list=<div className="question"><img src={loadingBar} className='' /></div>;
+     } else if(questionsFiltered && questionsFiltered.length>0) {
+         list=questionsFiltered.map((question) => {
          return <Question key={question.id} question={question} />
        })
      } else {

@@ -14,6 +14,11 @@ const requestQuestionsFailure = err => ({
   err
 });
 
+const updateQuestionAnswer=(answer)=> ({
+  type:'questions/UPDATEANSWER',
+  answer
+})
+
 const appendNewQuestion=question=>({
   type:'questions/APPEND',
   question
@@ -40,9 +45,10 @@ export const getQuestions = () => {
 
 export const saveQuestionAnswer = (authedUser, qid, answer) => {
   return (dispatch) => {
+    let answerOBJ={authedUser, qid, answer};
     //perform API call
-    _saveQuestionAnswer({authedUser, qid, answer}).then(success=>{
-      getQuestions()
+    _saveQuestionAnswer({authedUser, qid, answer}).then((authedUser, qid, answer)=>{
+      dispatch(updateQuestionAnswer(answerOBJ));
     }).catch(error => {
       dispatch(requestQuestionsFailure(error));
   });
