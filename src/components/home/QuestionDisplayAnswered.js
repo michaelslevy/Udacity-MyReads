@@ -10,8 +10,7 @@ export const QuestionDetailAnswered =(props) => {
     let optionTwoPercent=parseInt((optionTwoTotal/totalAnswered)*100);
     let optionOneIndicatorText, optionTwoIndicatorText;
 
-    let optionOneActive;
-    let optionTwoActive;
+    let optionOneActive, optionTwoActive;
     if(props.question.optionOne.votes.includes(props.loggedinID)){
       optionOneActive="indicator active";
       optionTwoActive="indicator";
@@ -46,4 +45,15 @@ export const QuestionDetailAnswered =(props) => {
      );
   }
 
-//default export  QuestionDetailAnswered
+
+  QuestionDetailAnswered.propTypes = {
+    optionOneTotal: PropTypes.string,
+    optionTwoTotal: PropTypes.string,
+    totalAnswered: PropTypes.string,
+    optionOnePercent: PropTypes.integer,
+    optionTwoPercent: PropTypes.integer,
+    optionOneIndicatorText: PropTypes.string,
+    optionTwoIndicatorText: PropTypes.string,
+    optionOneActive: PropTypes.string,
+    optionTwoActive: PropTypes.string,
+  };

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import {getQuestions, saveQuestionAnswer }  from '../../actions/questions' //combine user actions into a single object
-import {getUsers}  from '../../actions/user' //combine user actions into a single object
 
 //function passed to Reduxes Connect to populate store
 const mapStateToProps = (store) => {
@@ -43,5 +42,12 @@ const mapDispatchToProps = (dispatch) => {
      );
   }
 }
+
+QuestionDetailUnanswered.propTypes = {
+  optionOne: PropTypes.string,
+  optionTwo: PropTypes.string,
+  questionID: PropTypes.string,
+  loggedinID: PropTypes.string,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuestionDetailUnanswered);

@@ -28,17 +28,17 @@ const mapDispatchToProps = (dispatch) => {
 
    render() {
 
-     let author=this.props.users.filter((user)=>user.id==this.props.question.author);
+     let author=this.props.users.filter((user)=>user.id===this.props.question.author);
      let optionOne=this.props.question.optionOne.text;
      let optionTwo=this.props.question.optionTwo.text;
      let time=convertTimestamp(this.props.question.timestamp);
-
+ 
      return (
             <div className="question">
                 <header>{author[0].name} Asks:<br/><time>{time}</time></header>
                 <div className='body'>
                   <div className='img'>
-                    <img src={author[0].avatarURL}/>
+                    <img src={author[0].avatarURL} alt={author[0].name}/>
                   </div>
                   <div className='copy'>
                     <h2>Would you rather?</h2>
@@ -52,5 +52,12 @@ const mapDispatchToProps = (dispatch) => {
      );
   }
 }
+
+Question.propTypes = {
+  author: PropTypes.string,
+  optionOne: PropTypes.string,
+  optionTwo:PropTypes.string,
+  time:PropTypes.string,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Question);

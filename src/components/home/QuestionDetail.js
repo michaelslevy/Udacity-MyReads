@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import {getQuestions}  from '../../actions/questions' //combine user actions into a single object
-import {getUsers}  from '../../actions/user' //combine user actions into a single object
-import Question from "./Question"
 import Navigation from '../Navigation'
-import HomeTabs from '../home/HomeTabs'
 import QuestionDetailUnanswered from '../home/QuestionDisplayUnanswered'
 import {QuestionDetailAnswered} from '../home/QuestionDisplayAnswered'
 
@@ -37,7 +34,6 @@ const mapDispatchToProps = (dispatch) => {
 
     componentDidMount() {
         this.props.getQuestions();
-        console.log(this.props.questions);
         //find if current user has answered questions
         let questionID=this.props.match.params.questionId;
         let question=this.props.questions.filter(q=>q.id===questionID);
@@ -61,7 +57,7 @@ const mapDispatchToProps = (dispatch) => {
      const answerQuestion=()=>{ this.setState({unanswered:false}); }
 
      let QuestionDisplay;
-     if(this.state.unanswered==true){
+     if(this.state.unanswered===true){
         QuestionDisplay=<QuestionDetailUnanswered answerQuestion={answerQuestion} question={question[0]} />
      } else {
         QuestionDisplay=<QuestionDetailAnswered loggedInID={this.props.loggedInAs.id} question={question[0]} />
@@ -75,7 +71,7 @@ const mapDispatchToProps = (dispatch) => {
                 <header>{author[0].name} Asks:</header>
                 <div className='body'>
                   <div className='img'>
-                    <img src={author[0].avatarURL}/>
+                    <img src={author[0].avatarURL} alt={author[0].name} />
                   </div>
                   <div className='copy'>
                     <h2>Would you rather?</h2>
@@ -88,5 +84,15 @@ const mapDispatchToProps = (dispatch) => {
      );
   }
 }
+
+QuestionDetail.propTypes = {
+  answered: PropTypes.string,
+  questionID: PropTypes.string,
+  question: PropTypes.object,
+  authorID: PropTypes.string,
+  author: PropTypes.object,
+  answerQuestion: PropTypes.fuction,
+};
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuestionDetail);

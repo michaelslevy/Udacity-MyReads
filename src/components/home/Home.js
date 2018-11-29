@@ -21,7 +21,7 @@ class Home extends Component {
 
     switchDisplay = (display) => {
         let answered, unanswered;
-        if(display=="Unanswered"){
+        if(display==="Unanswered"){
           answered='';
           unanswered='active';
         } else {
@@ -49,6 +49,11 @@ class Home extends Component {
      );
   }
 }
+
+Home.propTypes = {
+  answered: PropTypes.string,
+  unanswered: PropTypes.string
+};
 
 //connects Login component to store
 export default Home;

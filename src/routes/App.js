@@ -3,7 +3,7 @@ import Home from '../components/home/Home';
 import QuestionDetail from '../components/home/QuestionDetail';
 import Leaderboard from '../components/leaderboard/Leaderboard';
 import NewQuestion from '../components/newQuestion/NewQuestion'
-import { Route, Router, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import NotFound from '../components/NotFound'
 

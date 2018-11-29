@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import * as userActionCreators  from '../../actions/user' //combine user actions into a single object
-import { Redirect } from 'react-router-dom'
 import loadingBar from '../../ajax-loader.gif'
 
 //function passed to Reduxes Connect to populate store
@@ -47,9 +45,9 @@ const mapDispatchToProps = (dispatch) => {
             {/*maps state to drop down list*/}
             {this.props.users && this.props.users.length ?
               this.props.users.map((user, i) => {
-                return <li onClick={() => this.loginUser(user)} key={i}><img src={user.avatarURL} align='absmiddle' />{user.name}</li>
+                return <li onClick={() => this.loginUser(user)} key={i}><img src={user.avatarURL} align='absmiddle' alt={user.name} />{user.name}</li>
               })
-            : <li className='loading' ><img src={loadingBar} /></li>}
+            : <li className='loading' ><img src={loadingBar} alt='Loading..' /></li>}
             </ul>
 
             </div>

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import Navigation from '../Navigation'
 import {saveQuestion }  from '../../actions/questions' //combine user actions into a single object
-import  { Redirect } from 'react-router-dom'
 
 //function passed to Reduxes Connect to populate store
 const mapStateToProps = (store) => {
@@ -80,6 +79,13 @@ class NewQuestion extends Component {
      );
   }
 }
+
+NewQuestion.propTypes = {
+  author: PropTypes.string,
+  optionOneText: PropTypes.string,
+  optionTwoText: PropTypes.string,
+  question: PropTypes.string
+};
 
 //connects Login component to store
 export default connect(mapStateToProps, mapDispatchToProps)(NewQuestion);

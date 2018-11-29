@@ -39,7 +39,7 @@ class Leaderboard extends Component {
       let mergedUsers=[];
 
       for (let i=0; i<this.props.users.length; i++){
-        let id, name, userID, avatarURL, questionsAnswered, questionsAsked, optionOneCount, optionTwoCount, questionsAuthored, score;
+        let  name, userID, avatarURL, questionsAnswered, optionOneCount, optionTwoCount, questionsAuthored, score;
 
         name=this.props.users[i].name
         userID=this.props.users[i].id;
@@ -61,7 +61,7 @@ class Leaderboard extends Component {
 
 
    render() {
-      console.log(this.state);
+
      return (
        <div id='main'>
           <Navigation home='' leaderboard='active' newquestion='' />
@@ -69,10 +69,10 @@ class Leaderboard extends Component {
             <h1>Leaderboard</h1>
             <div id='questionBox'>
               {this.state.mergedUsers.sort((a,b)=>b.score-a.score).map((user)=>
-                <div key='{user.id}' className='UserScoreCard'>
+                <div key={user.userID} className='UserScoreCard'>
                   <h2>{user.name}</h2>
                   <div className='cardData'>
-                  <div className='userInfo'><img src={user.avatarURL} /></div>
+                  <div className='userInfo'><img src={user.avatarURL} alt={user.name} /></div>
                   <div className='content'>
                     <p>Questions answered: {user.questionsAnswered }</p>
                     <p>Questions asked: {user.questionsAuthored }</p>
@@ -92,6 +92,21 @@ class Leaderboard extends Component {
      );
   }
 }
+
+Leaderboard.propTypes = {
+  mergedUsers: PropTypes.array,
+  id: PropTypes.string,
+  name: PropTypes.string,
+  userID: PropTypes.string,
+  avatarURL: PropTypes.string,
+  questionsAnswered: PropTypes.string,
+  questionsAsked: PropTypes.string,
+  optionOneCount: PropTypes.string,
+  optionTwoCount: PropTypes.string,
+  questionsAuthored: PropTypes.string,
+  score: PropTypes.string,
+  user: PropTypes.object
+};
 
 //connects Login component to store
 export default connect(mapStateToProps, mapDispatchToProps)(Leaderboard)  ;

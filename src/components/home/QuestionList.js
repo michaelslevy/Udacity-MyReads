@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import {getQuestions}  from '../../actions/questions' //combine user actions into a single object
 import Question from "./Question"
-import {getUsers}  from '../../actions/user' //combine user actions into a single object
 import loadingBar from '../../ajax-loader.gif'
 
 //function passed to Reduxes Connect to populate store
@@ -30,17 +29,17 @@ const mapDispatchToProps = (dispatch) => {
 
    render() {
      let userID=this.props.loggedInAs.id;
-     let questionsFiltered;
-     if(this.props.display=="Unanswered"){
-       questionsFiltered=this.props.questions.filter(q=>q.optionOne.votes.includes(userID)===false && q.optionTwo.votes.includes(userID)==false);
+     let questionsFiltered=[];
+     if(this.props.display==="Unanswered"){
+       questionsFiltered=this.props.questions.filter(q=>q.optionOne.votes.includes(userID)===false && q.optionTwo.votes.includes(userID)===false);
      } else {
        questionsFiltered=this.props.questions.filter(q=>q.optionOne.votes.includes(userID) || q.optionTwo.votes.includes(userID));
      }
 
      let list;
 
-     if(this.props.loading==true){
-        list=<div className="question"><img src={loadingBar} className='' /></div>;
+     if(this.props.loading===true){
+        list=<div className="question"><img src={loadingBar} className='' alt='loading...' /></div>;
      } else if(questionsFiltered && questionsFiltered.length>0) {
          list=questionsFiltered.map((question) => {
          return <Question key={question.id} question={question} />
@@ -56,5 +55,11 @@ const mapDispatchToProps = (dispatch) => {
      );
   }
 }
+
+QuestionList.propTypes = {
+  userID: PropTypes.string,
+  questionsFiltered: PropTypes.array,
+  list:PropTypes.array
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuestionList);
