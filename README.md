@@ -4,7 +4,9 @@ A survey game written for the Udacity React Nano Degree Program.
 
 ## Getting Started
 
-Clone the project and run the command: NPM Start
+Clone the project
+Install: npm i
+Run the command: NPM Start
 
 ### Prerequisites
 

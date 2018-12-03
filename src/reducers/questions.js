@@ -38,8 +38,7 @@ const questions = (state = initialState, action) => {
 
         let newQuestions=[...state.questions];
         for (let i=0; i<newQuestions.length; i++ ){
-          console.log(newQuestions[i].id, qid, newQuestions[i].id==qid);
-          if(newQuestions[i].id==qid){
+          if(newQuestions[i].id===qid){
             let votes=newQuestions[i][answer]['votes'];
             newQuestions[i][answer]['votes']=[...votes,authedUser]
             console.log(newQuestions[i][answer]);
