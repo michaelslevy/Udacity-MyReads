@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import '../App.css';
 
 //import modules
-import { Route, Switch, withRouter } from 'react-router-dom'
+import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 //import components
@@ -29,23 +29,21 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class Authenticate extends Component {
-
   render() {
-    console.log(this.props.loggedInUser);
-    if(this.props.loggedInUser){
-    return (
-      <Switch>
-        <Route path="/login" exact component={Login} />
-        <Route path="/" exact  component={Home} />
-        <Route path="/leaderboard" exact component={Leaderboard} />
-        <Route path="/add" exact component={NewQuestion} />
-        <Route path="/questions/:questionId" exact component={QuestionDetail} />
-        <Route component={NotFound} />
-      </Switch>
-    );
-  } else {
-      return <Route  component={Login} />
-  }
+  if(this.props.loggedInUser){
+      return (
+        <Switch>
+          <Route path="/login" exact component={Login} />
+          <Route path="/" exact  component={Home} />
+          <Route path="/leaderboard" exact component={Leaderboard} />
+          <Route path="/add" exact component={NewQuestion} />
+          <Route path="/questions/:questionId" exact component={QuestionDetail} />
+          <Route component={NotFound} />
+        </Switch>
+      );
+    } else {
+        return <Route  component={Login} />
+    }
 
   }
 }
