@@ -53,8 +53,8 @@ const mapDispatchToProps = (dispatch) => {
      let question=this.props.questions.filter(q=>q.id===questionID);
      let authorID=question[0].author;
      let author=this.props.users.filter((user)=>user.id===authorID);
-
      const answerQuestion=()=>{ this.setState({unanswered:false}); }
+
 
      let QuestionDisplay;
      if(this.state.unanswered===true){
@@ -90,8 +90,7 @@ QuestionDetail.propTypes = {
   questionID: PropTypes.string,
   question: PropTypes.object,
   authorID: PropTypes.string,
-  author: PropTypes.object,
-  answerQuestion: PropTypes.fuction,
+  author: PropTypes.object
 };
 
 

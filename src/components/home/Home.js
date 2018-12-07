@@ -22,12 +22,13 @@ class Home extends Component {
     switchDisplay = (display) => {
         let answered, unanswered;
         if(display==="Unanswered"){
-          answered='';
-          unanswered='active';
-        } else {
+          answered=''; unanswered='active';
+        }
+        else {
           answered='active';
           unanswered='';
         }
+
         this.setState({display,unanswered,answered});
     }
 
@@ -38,7 +39,7 @@ class Home extends Component {
    render() {
      return (
        <div id='main'>
-          <Navigation home='active' leaderboard='' newquestion='' />
+          <Navigation home={'active'} leaderboard={''} newquestion={''} />
           <div className='container'>
             <h2>{this.state.display} Questions</h2>
             <HomeTabs switchDisplay={this.switchDisplay} answered={this.state.answered} unanswered={this.state.unanswered} />

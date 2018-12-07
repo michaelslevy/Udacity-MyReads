@@ -44,16 +44,3 @@ export const QuestionDetailAnswered =(props) => {
          </div>
      );
   }
-
-
-  QuestionDetailAnswered.propTypes = {
-    optionOneTotal: PropTypes.string,
-    optionTwoTotal: PropTypes.string,
-    totalAnswered: PropTypes.string,
-    optionOnePercent: PropTypes.integer,
-    optionTwoPercent: PropTypes.integer,
-    optionOneIndicatorText: PropTypes.string,
-    optionTwoIndicatorText: PropTypes.string,
-    optionOneActive: PropTypes.string,
-    optionTwoActive: PropTypes.string,
-  };

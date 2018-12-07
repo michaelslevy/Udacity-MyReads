@@ -7,7 +7,7 @@ class NotFound extends Component {
 
      return (
        <div id='main'>
-          <Navigation home='' leaderboard='active' newquestion='' />
+          <Navigation home='' leaderboard='' newquestion='' />
           <div className='container'>
             <h1>Page not found.</h1>
             <p>The page you were looking for was not found.</p>
