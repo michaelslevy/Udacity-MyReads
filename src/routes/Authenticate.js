@@ -44,11 +44,7 @@ class Authenticate extends Component {
             </Switch>
         ) :
           (
-              <Switch>
-                  <Route path="/login" exact component={Login} />
-                  <Route path="/" exact component={Login} />
-                  <Route path="*" component={NotFound} />
-              </Switch>
+            <Route component={Login} />
         )
     }
     </Fragment>
