@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 
 export const QuestionDetailAnswered =(props) => {
 
-    let optionOneTotal=props.question.optionOne.votes.length;
-    let optionTwoTotal=props.question.optionTwo.votes.length;
+    let optionOneTotal=(props.question.optionOne.votes.length)?(props.question.optionOne.votes.length):0;
+    let optionTwoTotal=(props.question.optionTwo.votes.length)?props.question.optionTwo.votes.length:0;
     let totalAnswered=optionOneTotal+optionTwoTotal;
-    let optionOnePercent=parseInt((optionOneTotal/totalAnswered)*100);
-    let optionTwoPercent=parseInt((optionTwoTotal/totalAnswered)*100);
-    let optionOneIndicatorText, optionTwoIndicatorText;
+    let optionOnePercent=(parseInt((optionOneTotal/totalAnswered)*100))?parseInt((optionOneTotal/totalAnswered)*100):0;
+    let optionTwoPercent=(parseInt((optionTwoTotal/totalAnswered)*100))?parseInt((optionTwoTotal/totalAnswered)*100):0;
+    let optionOneIndicatorText='';
+    let optionTwoIndicatorText='';
 
     let optionOneActive, optionTwoActive;
     if(props.question.optionOne.votes.includes(props.loggedinID)){
@@ -50,8 +51,8 @@ export const QuestionDetailAnswered =(props) => {
     optionOneTotal: PropTypes.string,
     optionTwoTotal: PropTypes.string,
     totalAnswered: PropTypes.string,
-    optionOnePercent: PropTypes.integer,
-    optionTwoPercent: PropTypes.integer,
+    optionOnePercent: PropTypes.number,
+    optionTwoPercent: PropTypes.number,
     optionOneIndicatorText: PropTypes.string,
     optionTwoIndicatorText: PropTypes.string,
     optionOneActive: PropTypes.string,

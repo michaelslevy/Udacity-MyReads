@@ -91,7 +91,6 @@ QuestionDetail.propTypes = {
   question: PropTypes.object,
   authorID: PropTypes.string,
   author: PropTypes.object,
-  answerQuestion: PropTypes.fuction,
 };
 
 

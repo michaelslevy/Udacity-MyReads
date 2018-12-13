@@ -33,16 +33,25 @@ class Authenticate extends Component {
   if(this.props.loggedInUser){
       return (
         <Switch>
-          <Route path="/login" exact component={Login} />
           <Route path="/" exact  component={Home} />
-          <Route path="/leaderboard" exact component={Leaderboard} />
-          <Route path="/add" exact component={NewQuestion} />
-          <Route path="/questions/:questionId" exact component={QuestionDetail} />
+          <Route path="/login" component={Login} />
+          <Route path="/leaderboard"  component={Leaderboard} />
+          <Route path="/add" component={NewQuestion} />
+          <Route path="/questions/:questionId" component={QuestionDetail} />
           <Route component={NotFound} />
         </Switch>
       );
     } else {
-        return <Route  component={Login} />
+        return (
+        <Switch>
+          <Route path="/" exact  component={Login} />
+          <Route path="/login" component={Login} />
+          <Route path="/leaderboard"  component={Login} />
+          <Route path="/add" component={Login} />
+          <Route path="/questions*"  component={Login} />
+          <Route component={NotFound} />
+        </Switch>
+      )
     }
 
   }
