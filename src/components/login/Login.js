@@ -28,6 +28,7 @@ const mapDispatchToProps = (dispatch) => {
    }
 
   loginUser = (user) => {
+    console.log(this.props);
     this.props.loginUser(user);
     this.props.history.push("/");
 

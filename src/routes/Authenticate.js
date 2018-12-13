@@ -13,6 +13,7 @@ import Leaderboard from '../components/leaderboard/Leaderboard';
 import NewQuestion from '../components/newQuestion/NewQuestion'
 import NotFound from '../components/NotFound'
 import Login from '../components/login/Login';
+import QuestionExists from './QuestionExists';
 
 //function passed to Reduxes Connect to populate store
 const mapStateToProps = (store) => {
@@ -45,10 +46,13 @@ class Authenticate extends Component {
         return (
         <Switch>
           <Route path="/" exact  component={Login} />
-          <Route path="/login" component={Login} />
+          <Route path="/login" render={props =>
+                    (<Login
+                      {...props}
+                    />)} />
           <Route path="/leaderboard"  component={Login} />
           <Route path="/add" component={Login} />
-          <Route path="/questions*"  component={Login} />
+          <Route path="/questions/:questionId"  component={QuestionExists} />
           <Route component={NotFound} />
         </Switch>
       )
