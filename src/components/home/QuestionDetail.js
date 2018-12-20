@@ -90,7 +90,7 @@ QuestionDetail.propTypes = {
   questionID: PropTypes.string,
   question: PropTypes.object,
   authorID: PropTypes.string,
-  author: PropTypes.object
+  author: PropTypes.object,
 };
 
 

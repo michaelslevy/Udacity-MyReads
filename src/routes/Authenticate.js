@@ -13,6 +13,7 @@ import Leaderboard from '../components/leaderboard/Leaderboard';
 import NewQuestion from '../components/newQuestion/NewQuestion'
 import NotFound from '../components/NotFound'
 import Login from '../components/login/Login';
+import QuestionExists from './QuestionExists';
 
 //function passed to Reduxes Connect to populate store
 const mapStateToProps = (store) => {
@@ -30,25 +31,33 @@ const mapDispatchToProps = (dispatch) => {
 
 class Authenticate extends Component {
   render() {
-     const { loggedInUser } = this.props;
-     return (
-     <Fragment>
-        {loggedInUser ? (
-            <Switch>
-                <Route path="/login" exact component={Login} />
-                <Route path="/" exact component={Home} />
-                <Route path="/leaderboard" exact component={Leaderboard} />
-                <Route path="/add" exact component={NewQuestion} />
-                <Route path="/questions/:questionId" exact component={QuestionDetail} />
-                <Route path="*" component={NotFound} />
-            </Switch>
-        ) :
-          (
-            <Route component={Login} />
-        )
+  if(this.props.loggedInUser){
+      return (
+        <Switch>
+          <Route path="/" exact  component={Home} />
+          <Route path="/login" component={Login} />
+          <Route path="/leaderboard"  component={Leaderboard} />
+          <Route path="/add" component={NewQuestion} />
+          <Route path="/questions/:questionId" component={QuestionDetail} />
+          <Route component={NotFound} />
+        </Switch>
+      );
+    } else {
+        return (
+        <Switch>
+          <Route path="/" exact  component={Login} />
+          <Route path="/login" render={props =>
+                    (<Login
+                      {...props}
+                    />)} />
+          <Route path="/leaderboard"  component={Login} />
+          <Route path="/add" component={Login} />
+          <Route path="/questions/:questionId"  component={QuestionExists} />
+          <Route component={NotFound} />
+        </Switch>
+      )
     }
-    </Fragment>
-    );
+    
   }
 }
 
