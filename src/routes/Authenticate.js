@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import '../App.css';
 
 //import modules
-import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 //import components

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import {getQuestions}  from '../actions/questions' //combine user actions into a single object
 import NotFound from '../components/NotFound'
